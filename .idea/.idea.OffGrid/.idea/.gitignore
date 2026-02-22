@@ -1,0 +1,81 @@
+# .NET Build / Output
+bin/
+obj/
+*.csproj.user
+*.user
+*.suo
+*.userprefs
+*.sln.docstates
+*.cache
+*.vs/
+.vs/
+
+# NuGet
+packages/
+*.nupkg
+*.snk
+*.DotSettings.user
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+*.resharper
+*.resharper.user
+_ReSharper.Caches/
+_ReSharper.DecompilerCache/
+[Tt]est[Rr]esult*/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs / Diagnostics
+*.log
+*.pdb
+*.tmp
+*.cache
+*.vspscc
+*.vssscc
+buildLog.htm
+BuildLog.htm
+UpgradeLog.XML
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.VC.opendb
+
+# Test results / coverage
+[TestResults]/
+*.trx
+*.coverage
+*.coveragexml
+
+# Entity Framework / migrations (jeśli będziesz używał)
+Migrations/*.designer.cs
+Migrations/*.ModelSnapshot.cs   # ← czasem chcesz wrzucić, ale na start lepiej ignorować
+
+# Inne często ignorowane
+*.bak
+*.swp
+*~
+~$*
+.DS_Store?
+.fseventsd
+[Tt]emporary[Tt]Items/
+[Tt]emp/
+[Tt]mp/
+
+# Pakiety i narzędzia
+*.zip
+*.rar
+*.7z
