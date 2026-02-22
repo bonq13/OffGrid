@@ -1,0 +1,21 @@
+# JetBrains Rider / IntelliJ-based IDEs
+.idea/
+*.iml
+*.iws
+
+# .NET / C# build artifacts
+bin/
+obj/
+*.csproj.user
+*.user
+*.suo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Rider temporary / cache
+_ReSharper*/
+[Rr]eSharper*/
+*.resharper.user
