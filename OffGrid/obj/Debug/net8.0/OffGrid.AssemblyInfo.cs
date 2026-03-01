@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OffGrid")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c4a1f3c587afc996fb3a29aeea7680eb513c0b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("OffGrid")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OffGrid")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

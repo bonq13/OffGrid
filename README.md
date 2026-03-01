@@ -1,4 +1,5 @@
 # OffGrid
+## Projekt aplikacji 
 
 **Autor:** Karol Bąk
 **Przedmiot:** Praktyka zawodowa – Informatyka III rok  
