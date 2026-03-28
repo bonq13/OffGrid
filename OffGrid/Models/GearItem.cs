@@ -7,7 +7,6 @@ public class GearItem : Item
     public DateTime? LastServiceDate { get; set; }
     public double UsageHours { get; set; }
     
-    // Czy przedmiot należy do systemu 5C Canterbury'ego?
     public bool IsPartOf5C { get; set; }
     
     public ItemCategory? Requires5CCategory { get; set; }
@@ -31,9 +30,9 @@ public class GearItem : Item
             ? $"Serwis: {DaysSinceService} dni temu"
             : "Brak serwisu";
         
-        var warningFlag = NeedsServiceSoon ? "⚠️" : string.Empty;
+        var warningFlag = NeedsServiceSoon ? "| Wymaga przeglądu ⚠️" : string.Empty;
         
         return ($"{Name} | {WeightGrams}g | Stan: {Condition} | " +
-                $"{serviceInfo}{warningFlag}");
+                $"{serviceInfo} {warningFlag}");
     }
 }

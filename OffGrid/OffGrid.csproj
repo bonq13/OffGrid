@@ -10,7 +10,6 @@
     <ItemGroup>
       <Folder Include="Data\Interfaces\" />
       <Folder Include="Models\Autonomy\" />
-      <Folder Include="Ui\" />
     </ItemGroup>
 
 </Project>
