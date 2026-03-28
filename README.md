@@ -3,7 +3,7 @@
 
 **Autor:** Karol Bąk
 **Przedmiot:** Praktyka zawodowa – Informatyka III rok  
-**Prowadzący:** dr inż. Karolina Czarnacka  
+**Prowadząca:** dr inż. Karolina Czarnacka  
 
 ## Cel projektu
 
@@ -33,9 +33,25 @@ Chaos w zasobach → zapominanie co jest w zapasach/plecaku, brak planu zadań, 
 - Entity Framework Core + SQLite (lokalna baza w pliku .db)  
 - Pakiety: Microsoft.EntityFrameworkCore.Sqlite, ConsoleTables
 
-## Etapy / Stages (zgodnie z wytycznymi)
-- Etap 1: Wybór tematu i cel → [luty 2026 – zrobione]  
-- Etap 2: Analiza literatury → marzec 2026  
+## Struktura projektu
+```
+OffGrid/
+├── Models/          ← klasy danych i enumy
+├── Services/        ← logika biznesowa + interfejsy
+├── UI/              ← interfejs konsolowy
+├── Data/            ← warstwa trwałości danych (planowana)
+└── Program.cs
+```
+
+## Postęp prac
+- [x] Etap 1 – Modele danych (Item, FoodItem, WaterItem, GearItem,
+  Backpack, UserProfile, HouseholdProfile, Skill, ExpeditionPlan)
+- [x] Etap 2 – Logika biznesowa (InventoryService, BackpackService,
+  AutonomyCalculator, SkillService, ExpeditionService)
+- [x] Etap 3 – Interfejs konsolowy (w trakcie)
+- [ ] Etap 4 – Trwałość danych (SQLite)
+- [ ] Etap 5 – Generowanie PDF
+- [ ] Etap 6 – Dopracowanie i raport końcowy
 
 
-Prowadzący dodana jako collaborator: @KCzarnackaWSEI  
+Prowadząca dodana jako collaborator: @KCzarnackaWSEI  
