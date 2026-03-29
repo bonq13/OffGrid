@@ -11,6 +11,7 @@ public class ConsoleMenu
     private readonly ISkillService _skillService;
     private readonly IExpeditionService _expeditionService;
     private readonly InventoryView _inventoryView;
+    private readonly BackpackView _backpackView;
     public ConsoleMenu(IBackpackService backpackService, IInventoryService inventoryService,
         IAutonomyCalculator autonomyCalculator, ISkillService skillService, IExpeditionService expeditionService)
     {
@@ -20,6 +21,7 @@ public class ConsoleMenu
         _skillService = skillService;
         _expeditionService = expeditionService;
         _inventoryView = new InventoryView(_inventoryService);
+        _backpackView = new BackpackView(_backpackService, _inventoryService);
     }
     public void Run()
     {
@@ -44,7 +46,7 @@ public class ConsoleMenu
                     Console.ReadKey();
                     break;
                 case "2":
-                    Console.WriteLine("Plecak - dostępny wkrótce");
+                    _backpackView.Run();
                     Console.ReadKey();
                     break;
                 case "3":

@@ -129,7 +129,7 @@ public class InventoryView
         var categories = Enum.GetValues(typeof(ItemCategory)).Cast<ItemCategory>().ToList();
         Console.WriteLine("Wybierz kategorię:");
         for (int i = 0; i < categories.Count; i++)
-            Console.WriteLine($"{i + 1}. {categories[i]} ({items.Count(item => item.Category == categories[i])})");
+            Console.WriteLine($"{i + 1}. {categories[i].ToPolish()} ({items.Count(item => item.Category == categories[i])})");
         
         if (!int.TryParse(Console.ReadLine(), out int categoryNumber) 
             || categoryNumber < 1 || categoryNumber > categories.Count)
@@ -161,7 +161,7 @@ public class InventoryView
         var conditions = Enum.GetValues(typeof(ItemCondition)).Cast<ItemCondition>().ToList();
         Console.WriteLine("Wybierz stan przedmiotu:");
         for (int i = 0; i < conditions.Count; i++)
-            Console.WriteLine($"{i + 1}. {conditions[i]} ({items.Count(item => item.Condition == conditions[i])})");
+            Console.WriteLine($"{i + 1}. {conditions[i].ToPolish()} ({items.Count(item => item.Condition == conditions[i])})");
 
         if (!int.TryParse(Console.ReadLine(), out int conditionNumber)
             || conditionNumber < 1 || conditionNumber > conditions.Count)
@@ -245,6 +245,50 @@ public class InventoryView
                 bool isPartOf5C = choice2 == "1";
                 GearItem gearItem = new GearItem(name, weightInGrams, isPartOf5C);
                 
+                var fiveCCategories = new List<ItemCategory>
+                {
+                    ItemCategory.CuttingTool,
+                    ItemCategory.FireStarter,
+                    ItemCategory.Shelter,
+                    ItemCategory.WaterContainer,
+                    ItemCategory.Cordage
+                };
+                
+                if (isPartOf5C)
+                {
+                    Console.WriteLine("Wybierz kategorię: ");
+                    for (int i = 0; i < fiveCCategories.Count; i++)
+                        Console.WriteLine($"{i + 1}. {fiveCCategories[i].ToPolish()}");
+                    if (!int.TryParse(Console.ReadLine(), out int categoryNumber)
+                        || categoryNumber < 1 || categoryNumber > fiveCCategories.Count)
+                    {
+                        Console.WriteLine("Błędny numer");
+                        return;
+                    };
+                    gearItem.Category = fiveCCategories[categoryNumber - 1];
+                }
+                else
+                {
+                    Console.WriteLine("Wybierz kategorię sprzętu: ");
+                    var nonFiveCCategories = Enum.GetValues<ItemCategory>()
+                        .Where(c => !fiveCCategories.Contains(c))
+                        .ToList();
+                    for (int i = 1; i < nonFiveCCategories.Count; i++)
+                        Console.WriteLine($"{i+1}. {nonFiveCCategories[i]}");
+
+                    Console.WriteLine("Wprowadź indeks: ");
+                    if (!int.TryParse(Console.ReadLine(), out int categoryIndex) || categoryIndex < 1 ||
+                        categoryIndex > nonFiveCCategories.Count)
+                    {
+                        Console.WriteLine("Niepoprawny indeks kategorii...");
+                        return;
+                    }
+                    gearItem.Category = nonFiveCCategories[categoryIndex - 1];
+                }
+                
+                
+              
+                
                 Console.WriteLine("Ile godzin był uzywany?");
                 if (!double.TryParse(Console.ReadLine(), out var hoursUsed))
                 {
@@ -289,7 +333,7 @@ public class InventoryView
         {
             foreach (var item in items)
             {
-                Console.WriteLine($"{items.IndexOf(item) + 1}. {item.Name} - {item.Condition} - {item.WeightGrams}g");
+                Console.WriteLine($"{items.IndexOf(item) + 1}. {item.Name} - {item.Condition.ToPolish()} - {item.WeightGrams}g");
             }
             Console.WriteLine("Wybierz numer przedmiotu, który chcesz usunąć");
             if (!int.TryParse(Console.ReadLine(), out int itemToRemove))

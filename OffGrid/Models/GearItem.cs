@@ -1,4 +1,5 @@
 using OffGrid.Models.Enums;
+using OffGrid.UI;
 
 namespace OffGrid.Models;
 
@@ -32,7 +33,7 @@ public class GearItem : Item
         
         var warningFlag = NeedsServiceSoon ? "| Wymaga przeglądu ⚠️" : string.Empty;
         
-        return ($"{Name} | {WeightGrams}g | Stan: {Condition} | " +
+        return ($"{Name} | {WeightGrams}g | Stan: {Condition.ToPolish()} | " +
                 $"{serviceInfo} {warningFlag}");
     }
 }

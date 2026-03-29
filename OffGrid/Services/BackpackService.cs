@@ -11,7 +11,7 @@ public class BackpackService : IBackpackService
         if(item == null) throw new ArgumentNullException(nameof(item));
         if (backpack.IsOverweight || item.WeightGrams > backpack.RemainingWeightKg * 1000)
         {
-            throw new InvalidOperationException("Backpack is overweight!");
+            throw new InvalidOperationException("Plecak przepakowany!");
         }
         
         backpack.Items.Add(item);

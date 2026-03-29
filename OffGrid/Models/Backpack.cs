@@ -6,16 +6,19 @@ public class Backpack
     public string Name { get; set; } = string.Empty;
     public double MaxWeightKg { get; set; }
     
+    public double Weight { get; set; }
+    
     public List<Item> Items { get; set; } = new List<Item>();
     
-    public double CurrentWeightKg => Items.Sum(item => item.WeightGrams / 1000);
+    public double CurrentWeightKg =>Items.Sum(item => item.WeightGrams / 1000);
     
     public double RemainingWeightKg => MaxWeightKg - CurrentWeightKg;
     public bool IsOverweight => CurrentWeightKg > MaxWeightKg;
     
-    public Backpack(string name, double maxWeightKg)
+    public Backpack(string name, double maxWeightKg, double weight)
     {
         Name = name;
         MaxWeightKg = maxWeightKg;
+        Weight = weight;
     }
 }
