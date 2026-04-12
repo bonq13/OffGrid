@@ -1,3 +1,4 @@
+using OffGrid.Models;
 using OffGrid.Services.Interfaces;
 using OffGrid.UI;
 
@@ -12,6 +13,7 @@ public class ConsoleMenu
     private readonly IExpeditionService _expeditionService;
     private readonly InventoryView _inventoryView;
     private readonly BackpackView _backpackView;
+    private readonly ExpeditionView _expeditionView;
     private readonly AutonomyView _autonomyView;
     private readonly SkillView _skillView;
     public ConsoleMenu(IBackpackService backpackService, IInventoryService inventoryService,
@@ -23,7 +25,9 @@ public class ConsoleMenu
         _skillService = skillService;
         _expeditionService = expeditionService;
         _inventoryView = new InventoryView(_inventoryService);
-        _backpackView = new BackpackView(_backpackService, _inventoryService);
+        var sharedBackpacks = new List<Backpack>();
+        _backpackView = new BackpackView(backpackService, inventoryService, sharedBackpacks);
+        _expeditionView = new ExpeditionView(backpackService, expeditionService, sharedBackpacks);
         _autonomyView = new AutonomyView(_inventoryService, _autonomyCalculator);
         _skillView = new SkillView(_skillService);
     }
@@ -47,23 +51,18 @@ public class ConsoleMenu
             {
                 case "1":
                     _inventoryView.Run();
-                    Console.ReadKey();
                     break;
                 case "2":
                     _backpackView.Run();
-                    Console.ReadKey();
                     break;
                 case "3":
                     _autonomyView.Run();
-                    Console.ReadKey();
                     break;
                 case "4":
                     _skillView.Run();
-                    Console.ReadKey();
                     break;
                 case "5":
-                    Console.WriteLine("Wyprawy - dostępne wkrótce");
-                    Console.ReadKey();
+                    _expeditionView.Run();
                     break;
                 case "0":
                     return;

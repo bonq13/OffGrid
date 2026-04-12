@@ -8,13 +8,14 @@ public class BackpackView
     private readonly IBackpackService _backpackService;
     private readonly IInventoryService _inventoryService;
     
-    public BackpackView(IBackpackService backpackService, IInventoryService inventoryService)
+    public BackpackView(IBackpackService backpackService, IInventoryService inventoryService, List<Backpack> backpacks)
     {
         _backpackService = backpackService;
         _inventoryService = inventoryService;
+        _backpacks = backpacks;
     }
     
-    private readonly List<Backpack> _backpacks = new List<Backpack>();
+    private readonly List<Backpack> _backpacks;
     
     public void Run()
     {

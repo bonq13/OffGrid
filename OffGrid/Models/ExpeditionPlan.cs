@@ -13,7 +13,6 @@ public class ExpeditionPlan
     public double EstimatedCost {get; set;}
     public string? Notes { get; set; }
     public Backpack? Gear { get; set; }
-    public List<Skill> PossiblyRequiredSkills { get; set; } = new List<Skill>();
     
     public ExpeditionPlan(string name, DateTime startDate, DateTime endDate, Backpack gear)
     {

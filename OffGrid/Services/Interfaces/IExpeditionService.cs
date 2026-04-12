@@ -7,7 +7,6 @@ public interface IExpeditionService
 {
     void AddExpedition(ExpeditionPlan expedition);
     void RemoveExpedition(Guid id);
-    ExpeditionPlan GetById(Guid id);
     ExpeditionPlan GetByName(string name);
     ExpeditionPlan GetByStartDate(DateTime startDate);
     List<ExpeditionPlan> GetAll();
