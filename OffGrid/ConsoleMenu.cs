@@ -12,6 +12,8 @@ public class ConsoleMenu
     private readonly IExpeditionService _expeditionService;
     private readonly InventoryView _inventoryView;
     private readonly BackpackView _backpackView;
+    private readonly AutonomyView _autonomyView;
+    private readonly SkillView _skillView;
     public ConsoleMenu(IBackpackService backpackService, IInventoryService inventoryService,
         IAutonomyCalculator autonomyCalculator, ISkillService skillService, IExpeditionService expeditionService)
     {
@@ -22,6 +24,8 @@ public class ConsoleMenu
         _expeditionService = expeditionService;
         _inventoryView = new InventoryView(_inventoryService);
         _backpackView = new BackpackView(_backpackService, _inventoryService);
+        _autonomyView = new AutonomyView(_inventoryService, _autonomyCalculator);
+        _skillView = new SkillView(_skillService);
     }
     public void Run()
     {
@@ -50,11 +54,11 @@ public class ConsoleMenu
                     Console.ReadKey();
                     break;
                 case "3":
-                    Console.WriteLine("Autonomia - dostępna wkrótce");
+                    _autonomyView.Run();
                     Console.ReadKey();
                     break;
                 case "4":
-                    Console.WriteLine("Umiejętności - dostępne wkrótce");
+                    _skillView.Run();
                     Console.ReadKey();
                     break;
                 case "5":

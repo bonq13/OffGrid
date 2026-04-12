@@ -47,4 +47,18 @@ public static class EnumExtensions
         AlertPriority.Critical => "Krytyczny",
         _                      => priority.ToString()
     };
+    
+    public static string ToPolish(this SkillCategory category) => category switch
+    {
+        SkillCategory.FireStarting    => "Rozpalanie ognia",
+        SkillCategory.ShelterBuilding => "Budowa schronienia",
+        SkillCategory.KnotsTying      => "Wiązanie węzłów",
+        SkillCategory.WaterTreatment  => "Uzdatnianie wody",
+        SkillCategory.Navigation      => "Nawigacja",
+        SkillCategory.FirstAid        => "Pierwsza pomoc",
+        SkillCategory.SettingTraps    => "Stawianie pułapek",
+        SkillCategory.FoodGathering   => "Zbieranie pożywienia",
+        SkillCategory.Other           => "Inne",
+        _                             => category.ToString()
+    };
 }
