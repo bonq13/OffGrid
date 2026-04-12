@@ -1,10 +1,14 @@
+using System.Text.Json.Serialization;
 using OffGrid.Models.Enums;
 
 namespace OffGrid.Models;
 
+[JsonPolymorphic]
+[JsonDerivedType(typeof(FoodItem), "food")]
+[JsonDerivedType(typeof(WaterItem), "water")]
+[JsonDerivedType(typeof(GearItem), "gear")]
 public abstract class Item
 {
-    
     public Guid Id { get; set; } = Guid.NewGuid();
     
     public string Name { get; set; } = string.Empty;

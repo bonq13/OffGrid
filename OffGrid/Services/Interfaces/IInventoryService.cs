@@ -13,4 +13,5 @@ public interface IInventoryService
     List<Item> GetByCondition(ItemCondition condition);
     Item UpdateItem(Item item);
     List<Item> GetItemsNeedingService();
+    
 }

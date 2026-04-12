@@ -8,6 +8,12 @@ public class SkillService : ISkillService
 {
     private readonly List<Skill> _skills = new List<Skill>();    
     
+    public SkillService() { }
+    public SkillService(List<Skill> skills)
+    {
+        _skills = skills;
+    }   
+    
     public void AddSkill(Skill skill)
     {
         if (skill == null) throw new ArgumentNullException(nameof(skill));

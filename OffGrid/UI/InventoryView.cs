@@ -274,7 +274,7 @@ public class InventoryView
                         .Where(c => !fiveCCategories.Contains(c))
                         .ToList();
                     for (int i = 1; i < nonFiveCCategories.Count; i++)
-                        Console.WriteLine($"{i+1}. {nonFiveCCategories[i]}");
+                        Console.WriteLine($"{i+1}. {nonFiveCCategories[i].ToPolish()}");
 
                     Console.WriteLine("Wprowadź indeks: ");
                     if (!int.TryParse(Console.ReadLine(), out int categoryIndex) || categoryIndex < 1 ||

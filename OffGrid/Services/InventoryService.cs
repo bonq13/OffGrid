@@ -8,6 +8,12 @@ public class InventoryService : IInventoryService
 {
     private readonly List<Item> _items = new List<Item>();
 
+    public InventoryService() { }
+    public InventoryService(List<Item> items)
+    {
+        _items = items;
+    }
+
     public void AddItem(Item item)
     {
         if (item == null) throw new ArgumentNullException(nameof(item));
