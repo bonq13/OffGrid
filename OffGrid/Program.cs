@@ -34,6 +34,16 @@ class Program
             skillService,
             expeditionService);
 
+        Console.CancelKeyPress += (sender, e) =>
+        {
+            e.Cancel = true;
+            Console.WriteLine("\nZapisywanie danych przed zamknięciem...");
+            itemRepo.Save(inventoryService.GetAll(), "inventory");
+            skillRepo.Save(skillService.GetAll(), "skills");
+            Console.WriteLine("Dane zapisane. Do zobaczenia!");
+            Environment.Exit(0);
+        };
+        
         consoleMenu.Run();
         
         try

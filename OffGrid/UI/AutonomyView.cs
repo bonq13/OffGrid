@@ -106,7 +106,7 @@ public class AutonomyView
         if (_householdProfile == null) return;
         
         Console.WriteLine("Podaj imie członka: ");
-        var memberName = Console.ReadLine();
+        var memberName = Console.ReadLine() ?? string.Empty;
         
         Console.WriteLine("Podaj wiek członka w latach: ");
         if (!int.TryParse(Console.ReadLine(), out int age))

@@ -91,7 +91,7 @@ public class ExpeditionView
     private void AddExpedition()
     {
         Console.WriteLine("Podaj nazwę wyprawy: ");
-        var expeditionName = Console.ReadLine();
+        var expeditionName = Console.ReadLine() ?? string.Empty;
         
         Console.WriteLine("Podaj opis wyprawy: ");
         var expeditionDescription = Console.ReadLine();
@@ -228,7 +228,7 @@ public class ExpeditionView
         {
             case "1":
                 Console.WriteLine("Podaj nazwę wyprawy (lub jej fragment)");
-                var searchTerm = Console.ReadLine();
+                var searchTerm = Console.ReadLine() ?? string.Empty;
                 var foundExpedition = _expeditions.Where(e => e.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
                 if (foundExpedition.Count() == 0)
                 {
@@ -329,7 +329,7 @@ public class ExpeditionView
         {
             case "1":
                 Console.WriteLine("Podaj nową nazwę: ");
-                expeditionToModify.Name = Console.ReadLine(); 
+                expeditionToModify.Name = Console.ReadLine() ?? string.Empty; 
                 break;
             case "2":
                 Console.WriteLine("Podaj nową datę początkową: "); 
@@ -411,7 +411,7 @@ public class ExpeditionView
                 {
                     case "1":
                         Console.WriteLine("Podaj nazwę punktu:");
-                        var routePointName = Console.ReadLine();
+                        var routePointName = Console.ReadLine() ?? string.Empty;
                         Console.WriteLine("Podaj szerokość geograficzną:");
                         if (!double.TryParse(Console.ReadLine(), out var routePointLatitude))
                         {
@@ -493,7 +493,7 @@ public class ExpeditionView
                         {
                             case "1":
                                 Console.WriteLine("Podaj nową nazwę: ");
-                                expeditionToModify.RoutePoints[pointResult - 1].Name = Console.ReadLine();
+                                expeditionToModify.RoutePoints[pointResult - 1].Name = Console.ReadLine() ?? string.Empty;
                                 break;
                             case "2":
                                 Console.WriteLine("Podaj nową szerokość geograficzną: ");

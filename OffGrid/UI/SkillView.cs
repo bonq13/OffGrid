@@ -69,9 +69,9 @@ public class SkillView
         }
         var category = categories[categoryChoice - 1];
         Console.WriteLine("Podaj nazwę umiejętności:");
-        var skillName = Console.ReadLine();
+        var skillName = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("Podaj opis umiejętności: ");
-        var skillDescription = Console.ReadLine();
+        var skillDescription = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("W jakim stopniu opanowałeś/aś umiejętność?");
         var skillLevelCat = Enum.GetValues(typeof(SkillLevel)).Cast<SkillLevel>().ToList();
         for (int i = 0; i < skillLevelCat.Count; i++)
@@ -305,12 +305,12 @@ public class SkillView
         {
             case "1":
                 Console.WriteLine("Nowa nazwa: ");
-                var newSkillName = Console.ReadLine();
+                var newSkillName = Console.ReadLine() ?? string.Empty;
                 choosenSkill.Name = newSkillName;
                 break;
             case "2":
                 Console.WriteLine("Nowy opis: ");
-                var newSkillDescription = Console.ReadLine();
+                var newSkillDescription = Console.ReadLine() ?? string.Empty;
                 choosenSkill.Description = newSkillDescription;
                 break;
             case "3":

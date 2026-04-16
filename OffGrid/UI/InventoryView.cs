@@ -189,7 +189,7 @@ public class InventoryView
         Console.Write("\nWybierz typ przedmiotu: ");
         var itemType = Console.ReadLine();
         Console.WriteLine("Podaj nazwę przedmiotu:");
-        var name = Console.ReadLine();
+        var name = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("Podaj wagę przedmiotu");
         var weight = Console.ReadLine();
         if (!double.TryParse(weight, out var weightInGrams))

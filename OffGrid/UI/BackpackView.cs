@@ -107,7 +107,7 @@ public class BackpackView
     private void AddBackpack()
     {
         Console.WriteLine("Podaj nazwę plecaka: ");
-        var backpackName = Console.ReadLine();
+        var backpackName = Console.ReadLine() ?? string.Empty;
         
         Console.WriteLine("Podaj maksymalną wagę plecaka (w kilogramach): ");
         if (!double.TryParse(Console.ReadLine(), out var maxWeight))
