@@ -64,8 +64,7 @@ OffGrid/
   AutonomyCalculator, SkillService, ExpeditionService)
 - [x] Etap 3 – Interfejs konsolowy (wszystkie widoki zaimplementowane)
 - [x] Etap 4 – Trwałość danych (JSON z polimorficzną serializacją)
-- [ ] Etap 5 – Generowanie PDF
-- [ ] Etap 6 – Dopracowanie i raport końcowy
-
+- [x] Etap 5 – Generowanie PDF (QuestPDF)
+- [x] Etap 6 – Dopracowanie, ochrona przed crashami, czysta kompilacja
 ## Prowadząca
 Prowadząca dodana jako collaborator: @KCzarnackaWSEI
