@@ -1,6 +1,8 @@
 ﻿using OffGrid.Data;
 using OffGrid.Models;
 using OffGrid.Services;
+using QuestPDF;
+using QuestPDF.Infrastructure;
 
 namespace OffGrid;
 
@@ -8,6 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Settings.License = LicenseType.Community;
         
         var itemRepo = new JsonRepository<Item>();
         var skillRepo = new JsonRepository<Skill>();

@@ -7,7 +7,7 @@ public class ExpeditionPlan
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public List<RoutePoint> RoutePoints { get; set; } = new List<RoutePoint>();
-    public int DurationDays => (int) (EndDate - StartDate).TotalDays;
+    public int DurationDays => Math.Max(1, (int)(EndDate - StartDate).TotalDays);
     public int EstimatedKilometers {get; set;}
     public int ExpeditionParticipants {get; set;}
     public double EstimatedCost {get; set;}

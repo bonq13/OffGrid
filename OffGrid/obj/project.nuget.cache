@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L/4E0/mLHrU=",
+  "dgSpecHash": "vX8c7CIae08=",
   "success": true,
   "projectFilePath": "/Users/kabak/Documents/Studia/VI_semestr/praktyka_zawodowa/project/OffGrid/OffGrid/OffGrid.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/kabak/.nuget/packages/questpdf/2026.2.4/questpdf.2026.2.4.nupkg.sha512"
+  ],
   "logs": []
 }

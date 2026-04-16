@@ -1,4 +1,5 @@
 using OffGrid.Models;
+using OffGrid.Services;
 using OffGrid.Services.Interfaces;
 
 namespace OffGrid.UI;
@@ -31,6 +32,7 @@ public class ExpeditionView
             Console.WriteLine("3. Wyszukaj wyprawę");
             Console.WriteLine("4. Wyświetl wszystkie wyprawy");
             Console.WriteLine("5. Modyfikuj wyprawę");
+            Console.WriteLine("6. Generuj raport PDF");
             Console.WriteLine("0. Powrót");
             Console.Write("\nWybierz opcję: ");
 
@@ -42,12 +44,50 @@ public class ExpeditionView
                 case "3": SearchExpedition(); break;
                 case "4": ShowAllExpeditions(); break;
                 case "5": ModifyExpedition(); break;
+                case "6": GenerateReport(); break;
                 case "0": return;
                 default: Console.WriteLine("Nieznana opcja."); break;
             }
         }
     }
 
+    private void GenerateReport()
+    {
+        if (_expeditions.Count == 0)
+        {
+            Console.WriteLine("Brak wypraw.");
+            Console.ReadKey();
+            return;
+        }
+
+        Console.WriteLine("Wybierz wyprawę do wygenerowania raportu:");
+        for (int i = 0; i < _expeditions.Count; i++)
+            Console.WriteLine($"{i + 1}. {_expeditions[i].Name}");
+
+        if (!int.TryParse(Console.ReadLine(), out int choice) 
+            || choice < 1 || choice > _expeditions.Count)
+        {
+            Console.WriteLine("Nieprawidłowy wybór.");
+            Console.ReadKey();
+            return;
+        }
+
+        var expedition = _expeditions[choice - 1];
+        var pdfService = new PdfExportService();
+        var fileName = $"raport_{expedition.Name}_{DateTime.Now:yyyyMMdd}.pdf";
+
+        try
+        {
+            pdfService.GenerateExpeditionReport(expedition, fileName);
+            Console.WriteLine($"Raport wygenerowany: {Path.GetFullPath(fileName)}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Błąd generowania raportu: {e.Message}");
+        }
+        Console.ReadKey();
+    }
+    
     private void AddExpedition()
     {
         Console.WriteLine("Podaj nazwę wyprawy: ");
