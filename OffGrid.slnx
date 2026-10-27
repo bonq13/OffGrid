@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OffGrid.Api/OffGrid.Api.csproj" />
+    <Project Path="src/OffGrid.Application/OffGrid.Application.csproj" />
+    <Project Path="src/OffGrid.Contracts/OffGrid.Contracts.csproj" />
+    <Project Path="src/OffGrid.Domain/OffGrid.Domain.csproj" />
+    <Project Path="src/OffGrid.Infrastructure/OffGrid.Infrastructure.csproj" />
+    <Project Path="src/OffGrid.Web/OffGrid.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/OffGrid.Domain.Tests/OffGrid.Domain.Tests.csproj" />
+  </Folder>
+  <Project Path="OffGrid/OffGrid.csproj" />
+</Solution>
