@@ -20,11 +20,10 @@ public abstract class Item
         AddedOn = addedOn;
     }
     
-    public void UpdateItem(string name, double weightGrams, ItemCategory category, ItemCondition condition)
+    public void UpdateItem(string name, double weightGrams, ItemCondition condition)
     {
         SetName(name);
         SetWeightGrams(weightGrams);
-        Category = category;
         UpdateCondition(condition);
     }
     
